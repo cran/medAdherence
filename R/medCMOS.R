@@ -1,0 +1,44 @@
+
+
+medCMOS <-
+  function(df=data, followUpDays=365){
+    x <- rxGaps(df,gap=-1)
+    n <- length(unique(x$id))
+    rxmax <- nrow(x)/n
+    x$surplus <- ifelse(x$gap<0,-x$gap,0)
+    x$deficit <- ifelse(x$gap>0,-x$gap,0)
+    x <- x[,c("id","surplus","deficit")]
+    x$surplus <- ifelse(is.na(x$surplus),0,x$surplus)
+    x$deficit <- ifelse(is.na(x$deficit),0,x$deficit)
+    ss <- .C("cmos",
+            surplus = as.integer(x$surplus),
+            deficit = as.integer(x$deficit),
+            n = as.integer(n),
+            rxmax = as.integer(rxmax),
+            surp=as.integer(rep(0,n)),
+            defic=as.integer(rep(0,n)),
+            PACKAGE="medAdherence")
+    surplus <- data.frame(cbind(unique(x$id),ss$surp,ss$defic))
+    names(surplus) <- c("id","surplus", "deficit")
+    surplus$surplusPCT = round(surplus$surplus/followUpDays *100,1)
+    surplus$deficitPCT = -round(surplus$deficit/followUpDays *100,1)
+    return(surplus)
+ }
+
+#
+#dyn.unload("c:/temp/adherence/src/surplus.dll")
+#dyn.load("c:/temp/adherence/src/surplus.dll")
+#
+#
+#x= c(0,2,0,5,2,0,0,4)
+#y= c(-2,0,-1,0,0,-1,-3,0);
+#
+#ss <- .C("surplus",
+#a =as.integer(x),
+#b=as.integer(y),
+#n=as.integer(2),
+#rxmax=as.integer(4),
+#surp = as.integer(c(0,0)),
+#defic = as.integer(c(0,0))
+#)
+#ss
