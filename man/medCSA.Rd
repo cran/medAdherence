@@ -8,11 +8,12 @@
 divided by the number of days in the interval from the dispensation date up to,
 but not include, the next dispensation date (or the study end). }
 
-\usage{medCSA(df=data)}
+\usage{medCSA(df=data,digits=2)}
 
 \arguments{
     \item{df}{a dataframe created by \code{postData} funtion}
-      }
+    \item{digits}{round to decimals. Default is 2}
+          }
 \author{
 Xiangyang Ye, Pharmacotherapy Outcomes Research Center, University of Utah}
 
@@ -25,7 +26,7 @@ Preferred Measures \emph{The Annals of Pharmacotherapy} 2006;40:1280-1288
 }
 
 \examples{
-data(cmos)
+cmos <- rxExampledt()
 predt <- preRxData(df=cmos,id=ptid,rxDate=rxDay,daySupply=supplies)
 postdt <-postRxData(predt)
 medCSA(postdt)

@@ -1,6 +1,6 @@
 
 
-medCSA <- function(df=data) {
+medCSA <- function(df=data, digits=2) {
    n <- length(unique(df$id))
    rxmax <- dim(df)[[1]]/n
    ncsa <- rep(0,n*rxmax)
@@ -13,7 +13,7 @@ medCSA <- function(df=data) {
   Ncsa <- data.frame(cbind(xx$ncsa,xx$ngap))
   names(Ncsa) <- c("CsaSupplies","CsaInterval")
   ndt <- cbind(df,Ncsa)
-  ndt$CSA <- round(ndt$CsaSupplies/ndt$CsaInterval*100,1)
+  ndt$CSA <- round(ndt$CsaSupplies/ndt$CsaInterval*100,digits)
   ndt <- ndt[,c("id","rxDay","Supp","CsaSupplies", "CsaInterval", "CSA")]
   ndt <- ndt[ndt$rxDay!=0,]
   rownames(ndt) <- NULL

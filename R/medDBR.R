@@ -1,6 +1,6 @@
 
 medDBR <-
-  function(df=data,followUpDays=NA){
+  function(df=data,followUpDays=NA, digits=2){
     #df$Supp <- ifelse(df$last.id==1,0,df$Supp) 
     ndt <- do.call(rbind,lapply(split(df,list(df$id)),function(y) cbind(y,cumsum(y$Supp))))
     ndt2 <- ndt[ndt$last.id==1,]
@@ -16,7 +16,7 @@ medDBR <-
     newdt <- cbind(ndt2,intervals)
     rownames(newdt) <-NULL
     if(is.na(followUpDays)) followUpDays <- newdt$intervals 
-    newdt$DBR <- 100 - round((followUpDays-newdt$totalSupp)/followUpDays*100,1)
+    newdt$DBR <- 100 - round((followUpDays-newdt$totalSupp)/followUpDays*100,digits)
     return(newdt)
 }
 

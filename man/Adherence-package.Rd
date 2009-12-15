@@ -16,15 +16,15 @@ This package provides the functions to calculate medication adherence based on c
 \tabular{ll}{
 Package: \tab medAdherence\cr
 Type: \tab Package\cr
-Version: \tab 1.01\cr
-Date: \tab 2009-04-26\cr
+Version: \tab 1.02\cr
+Date: \tab 2009-12-15\cr
 License: \tab GPL-2\cr
 LazyLoad: \tab yes\cr
 }
 }
 
 \author{
-Xiangyang Ye,Pharmacotherapy Outcomes Research Center,University of Utah<\email{xyexye08@gmail.com}>
+Xiangyang Ye, Pharmacotherapy Outcomes Research Center, University of Utah<\email{xyexye08@gmail.com}>
 }
 \references{
 Haynes RB, Taylor DW, Sachett DL, eds. \emph{Compliance in health care}. Baltimore: John Hopkins University Press, 1979\cr
@@ -32,8 +32,8 @@ Haynes RB, Taylor DW, Sachett DL, eds. \emph{Compliance in health care}. Baltimo
 Hess, LM, Raebel, MA, et al. Measurement of Adherence in Pharmacy Administrative Databases: A Proposal for Statndard Definitions and
 Preferred Measures \emph{The Annals of Pharmacotherapy} 2006;40:1280-1288
 }
-\keyword{ package }
+\keyword{package }
 \examples{
-data(cmos)
+cmos <- rxExampledt()
 predt <- preRxData(df=cmos, id=ptid, rxDate=rxDay, daySupply=supplies)
 }

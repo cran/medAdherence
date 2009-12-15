@@ -17,7 +17,7 @@ and the next dispensation date.
 Xiangyang Ye, Pharmacotherapy Outcomes Research Center, University of Utah}
 
 \examples{
-data(cmos)
+cmos <- rxExampledt()
 predt <- preRxData(df=cmos,id=ptid,rxDate=rxDay,daySupply=supplies)
 postdt <-postRxData(predt)
 rxGaps(postdt)

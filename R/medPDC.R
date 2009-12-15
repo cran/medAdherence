@@ -1,5 +1,6 @@
 
-medPDC <- function(df=data,followUpDays=365) {
+
+medPDC <- function(df=data,followUpDays=365, digits=2) {
   n <- length(unique(df$id))
   rxDay <- df$rxDay
   Supp <- df$Supp
@@ -18,6 +19,6 @@ medPDC <- function(df=data,followUpDays=365) {
   finaldt <- data.frame(uniqid)
   names(finaldt) <- "id"
   finaldt <- cbind(finaldt,npdc)
-  finaldt$PDC <- round(finaldt$nPDC/followUpDays * 100,1)
+  finaldt$PDC <- round(finaldt$nPDC/followUpDays * 100,digits)
   return(finaldt)
 }

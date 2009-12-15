@@ -1,7 +1,7 @@
 
 
 medCMOS <-
-  function(df=data, followUpDays=365){
+  function(df=data, followUpDays=365, digits=2){
     x <- rxGaps(df,gap=-1)
     n <- length(unique(x$id))
     rxmax <- nrow(x)/n
@@ -20,8 +20,8 @@ medCMOS <-
             PACKAGE="medAdherence")
     surplus <- data.frame(cbind(unique(x$id),ss$surp,ss$defic))
     names(surplus) <- c("id","surplus", "deficit")
-    surplus$surplusPCT = round(surplus$surplus/followUpDays *100,1)
-    surplus$deficitPCT = -round(surplus$deficit/followUpDays *100,1)
+    surplus$surplusPCT = round(surplus$surplus/followUpDays *100,digits)
+    surplus$deficitPCT = -round(surplus$deficit/followUpDays *100,digits)
     return(surplus)
  }
 

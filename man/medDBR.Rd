@@ -12,13 +12,14 @@ if medication refills were not obtained on time.\cr
 The formula is: Adherence Rate = (1-(Days Between Refills - Total Days' Supply)/(Days Between Refills)) x 100.
 }
 
-\usage{medDBR(df=data,followUpDays=NA)}
+\usage{medDBR(df=data,followUpDays=NA, digits=2)}
 
 \arguments{
     \item{df}{a dataframe created by \code{preData} funtion}
     \item{followUpDays}{days of follow up. If no follow up days provided, the elapsed interval from the first dispensation
     date to last dispensation date will be used.}
-      }
+    \item{digits}{round to decimals. Default is 2}
+          }
 \author{
 Xiangyang Ye, Pharmacotherapy Outcomes Research Center, University of Utah}
 
@@ -32,7 +33,7 @@ Preferred Measures \emph{The Annals of Pharmacotherapy} 2006;40:1280-1288
 }
 
 \examples{
-data(cmos)
+cmos <- rxExampledt()
 predt <- preRxData(df=cmos,id=ptid,rxDate=rxDay,daySupply=supplies)
 medDBR(predt)
 }

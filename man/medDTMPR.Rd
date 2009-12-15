@@ -14,12 +14,13 @@ observation days (denomitor). DTMPR may exceed 100\% due to early refills and/or
 if DTMPR>100\%, it will be truncated to 100\%.
 }
 
-\usage{medDTMPR(df=data, followUpDays=NA,truncated="yes")}
+\usage{medDTMPR(df=data,followUpDays=NA,truncated="yes", digits=2)}
 
 \arguments{
     \item{df}{a dataframe created by \code{preData} funtion}
     \item{followUpDays}{days of follow up}
     \item{truncated}{limit MPR to 100\% or not. "yes" is the default}
+        \item{digits}{round to decimals. Default is 2}
 }
 
 \author{
@@ -31,7 +32,7 @@ in Subjects with Type 2 Diabetes Mellitus: A Retorspective Database Analysis \em
 }
 
 \examples{
-data(cmos)
+cmos <- rxExampledt()
 predt <- preRxData(df=cmos,id=ptid,rxDate=rxDay,daySupply=supplies)
 medDTMPR(predt)
 }

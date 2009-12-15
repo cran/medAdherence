@@ -13,12 +13,13 @@ observation days (denomitor). MPRm may exceed 100\% due to early refills and/or 
 if MPRm>100\%, it will be truncated to 100\%.
 }
 
-\usage{medMPRm(df=data, followUpDays=NA,truncated="yes")}
+\usage{medMPRm(df=data,followUpDays=NA,truncated="yes", digits=2)}
 
 \arguments{
     \item{df}{a dataframe created by \code{preData} funtion}
     \item{followUpDays}{days of follow up}
     \item{truncated}{limit MPR to 100\% or not. "yes" is the default}
+    \item{digits}{round to decimals. Default is 2}
 }
 
 \author{
@@ -33,7 +34,7 @@ Preferred Measures \emph{The Annals of Pharmacotherapy} 2006;40:1280-1288
 }
 
 \examples{
-data(cmos)
+cmos <- rxExampledt()
 predt <- preRxData(df=cmos,id=ptid,rxDate=rxDay,daySupply=supplies)
 medMPRm(predt)
 }

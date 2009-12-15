@@ -1,7 +1,7 @@
 
 medCR <-
-  function(df=data){
-    df$Supp <- ifelse(df$last.id==1,0,df$Supp) 
+  function(df=data, digits=2){
+    df$Supp <- ifelse(df$last.id==1,0,df$Supp)
     ndt <- do.call(rbind,lapply(split(df,list(df$id)),function(y) cbind(y,cumsum(y$Supp))))
     ndt2 <- ndt[ndt$last.id==1,]
     ndt2 <- ndt2[,c(-6:-2)]
@@ -15,7 +15,7 @@ medCR <-
     intervals <- mxs[,2]
     newdt <- cbind(ndt2,intervals)
     rownames(newdt) <-NULL
-    newdt$CR <- round(newdt$totalSupp/newdt$intervals*100,1)
+    newdt$CR <- round(newdt$totalSupp/newdt$intervals*100,digits)
     return(newdt)
 }
 

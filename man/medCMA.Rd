@@ -9,11 +9,12 @@ the study period divided by the number of days from the first dispensation date 
 completion (study end).
 }
 
-\usage{medCMA(df=data,followUpDays=365)}
+\usage{medCMA(df=data,followUpDays=365, digits=2)}
 
 \arguments{
     \item{df}{a dataframe created by \code{postData} funtion}
     \item{followUpDays}{days of follow up. 365 is the default, 12 month follow up}
+    \item{digits}{round to decimals. Default is 2}
       }
 \author{
 Xiangyang Ye, Pharmacotherapy Outcomes Research Center, University of Utah}
@@ -27,7 +28,7 @@ Preferred Measures \emph{The Annals of Pharmacotherapy} 2006;40:1280-1288
 }
 
 \examples{
-data(cmos)
+cmos <- rxExampledt()
 predt <- preRxData(df=cmos,id=ptid,rxDate=rxDay,daySupply=supplies)
 postdt <-postRxData(predt)
 medCMA(postdt)

@@ -26,12 +26,13 @@ days between the first and last presciption to get the measure of surplus for ea
 }
 
 
-\usage{medCMOS(df=data, followUpDays=365)}
+\usage{medCMOS(df=data,followUpDays=365, digits=2)}
 
 \arguments{
     \item{df}{a dataframe created by \code{preData} funtion}
     \item{followUpDays}{days of follow up. 365 is the default, 12 month follow up}
-       }
+    \item{digits}{round to decimals. Default is 2}
+           }
 \author{
 Xiangyang Ye, Pharmacotherapy Outcomes Research Center, University of Utah}
 
@@ -45,7 +46,7 @@ Preferred Measures \emph{The Annals of Pharmacotherapy} 2006;40:1280-1288
 }
 
 \examples{
-data(cmos)
+cmos <- rxExampledt()
 predt <- preRxData(df=cmos,id=ptid,rxDate=rxDay,daySupply=supplies)
 postdt <- postRxData(predt)
 medCMOS(postdt)

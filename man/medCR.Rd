@@ -11,11 +11,12 @@ the last dispensation date and the first dispensation date. \cr
 The formula is: (Total Days' Supply - Last Days' Supply)/(Last Dispensation Date - First Dispensation Date) x 100.
 }
 
-\usage{medCR(df=data)}
+\usage{medCR(df=data,digits=2)}
 
 \arguments{
     \item{df}{a dataframe created by \code{preData} funtion}
-      }
+    \item{digits}{round to decimals. Default is 2}
+          }
 \author{
 Xiangyang Ye, Pharmacotherapy Outcomes Research Center, University of Utah }
 
@@ -28,7 +29,7 @@ Preferred Measures \emph{The Annals of Pharmacotherapy} 2006;40:1280-1288
 }
 
 \examples{
-data(cmos)
+cmos <- rxExampledt()
 predt <- preRxData(df=cmos,id=ptid,rxDate=rxDay,daySupply=supplies)
 medCR(predt)
 }
