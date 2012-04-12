@@ -16,8 +16,8 @@ This package provides the functions to calculate medication adherence based on c
 \tabular{ll}{
 Package: \tab medAdherence\cr
 Type: \tab Package\cr
-Version: \tab 1.02\cr
-Date: \tab 2009-12-15\cr
+Version: \tab 1.03\cr
+Date: \tab 2012-04-12\cr
 License: \tab GPL-2\cr
 LazyLoad: \tab yes\cr
 }
@@ -34,6 +34,6 @@ Preferred Measures \emph{The Annals of Pharmacotherapy} 2006;40:1280-1288
 }
 \keyword{package }
 \examples{
-cmos <- rxExampledt()
+cmos <- rxExampledt() 
 predt <- preRxData(df=cmos, id=ptid, rxDate=rxDay, daySupply=supplies)
 }

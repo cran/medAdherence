@@ -28,7 +28,7 @@ void csa(int *n, int *rxmax,int *rxdate, int *refills,int *ncsa, int*ngap) {
        cap[i * *rxmax][1]=0;
    }
                  
- for (i=0;i<*n* *rxmax;i=i+1) {             
+ for (i=0;i<*n* *rxmax-1;i=i+1) {             
      *(ncsa+i+1) = cap[i+1][0]; 
      *(ngap+i+1) = cap[i+1][1];
      

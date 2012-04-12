@@ -25,20 +25,4 @@ medCMOS <-
     return(surplus)
  }
 
-#
-#dyn.unload("c:/temp/adherence/src/surplus.dll")
-#dyn.load("c:/temp/adherence/src/surplus.dll")
-#
-#
-#x= c(0,2,0,5,2,0,0,4)
-#y= c(-2,0,-1,0,0,-1,-3,0);
-#
-#ss <- .C("surplus",
-#a =as.integer(x),
-#b=as.integer(y),
-#n=as.integer(2),
-#rxmax=as.integer(4),
-#surp = as.integer(c(0,0)),
-#defic = as.integer(c(0,0))
-#)
-#ss
+

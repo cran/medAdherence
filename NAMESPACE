@@ -1,0 +1,19 @@
+
+useDynLib(medAdherence, .registration=TRUE)
+
+export("medCMA",
+"medCMG",
+"medCMOS",
+"medCR",
+"medCSA",
+"medDBR",
+"medDTMPR",
+"medMPR",
+"medMPRm",
+"medPDC",
+"postRxData",
+"preRxData",
+"rxExampledt",
+"rxGaps")
+
+

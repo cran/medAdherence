@@ -1,0 +1,11 @@
+
+2012-04-12  Xiangyang Ye  <xyexye08@gmail.com>
+
+* CSA over-run was fixed. Thanks to Prof Brian Ripley's array over-runs check. 
+
+* To fulfill the promise to Andreas Tille <tille@debian.org>, file "COPYING" 
+was added to declare the GPLv2
+http://www.gnu.org/licenses/gpl-2.0.txt
+
+
+

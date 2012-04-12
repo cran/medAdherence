@@ -1,7 +1,7 @@
 ".First.lib" <- function(lib, pkg) {
     library.dynam("medAdherence", pkg, lib)
-    if(interactive() || getOption("verbose")) # not in test scripts
-	  cat(sprintf("Package %s (%s) loaded.\n",pkg,packageDescription(pkg)$Version))
+    #if(interactive() || getOption("verbose")) # not in test scripts
+	#  cat(sprintf("Package %s (%s) loaded.\n",pkg,packageDescription(pkg)$Version))
     # To cite, see citation(\"%s\")\n",  pkg, packageDescription(pkg)$Version, pkg))
 }
 
